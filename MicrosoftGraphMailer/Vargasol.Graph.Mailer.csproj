@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>Gabor Varga</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://dev.azure.com/vargasol/Microsoft%20Graph%20Mailer</PackageProjectUrl>
+    <Copyright>Varga IT Solutions</Copyright>
+    <RepositoryUrl>https://dev.azure.com/vargasol/Microsoft%20Graph%20Mailer/_git/Microsoft%20Graph%20Mailer</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>e-mail,message,azuread,smtp</PackageTags>
+    <Description>Packages gives some help to could send e-mail via Azure AD Tenant using modern authentication</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.45.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+﻿global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using Vargasol.Graph.Mailer.Interfaces;
+global using Vargasol.Graph.Mailer.Mail;
+global using System.Security.Cryptography.X509Certificates;
+global using Newtonsoft.Json;

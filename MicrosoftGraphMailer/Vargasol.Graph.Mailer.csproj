@@ -10,9 +10,9 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Gabor Varga</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://dev.azure.com/vargasol/Microsoft%20Graph%20Mailer</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/vargasol/Microsoft-Graph-Mailer</PackageProjectUrl>
     <Copyright>Varga IT Solutions</Copyright>
-    <RepositoryUrl>https://dev.azure.com/vargasol/Microsoft%20Graph%20Mailer/_git/Microsoft%20Graph%20Mailer</RepositoryUrl>
+    <RepositoryUrl>https://github.com/vargasol/Microsoft-Graph-Mailer</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>e-mail,message,azuread,smtp</PackageTags>
     <Description>Packages gives some help to could send e-mail via Azure AD Tenant using modern authentication</Description>

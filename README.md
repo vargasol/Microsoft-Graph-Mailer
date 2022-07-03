@@ -79,5 +79,6 @@ This process follows fluent approach as well. You can chain the proper commands 
 
 ```
 Message message = MessageBuilder.Start("<From>").Subject("<subject>").IsHTML().AddRecipient("<recipient>").AddCCRecipients(new string[] { "<multiple recipients>" }).AddBody(<Message Body>).GenerateMessage();
-
 ```
+
+You just need to call the mailer.SendAsync or mailer.Send method attached the message as parameter.

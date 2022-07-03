@@ -81,6 +81,8 @@ This process follows fluent approach as well. You can chain the proper commands 
 Message message = MessageBuilder.Start("<From>").Subject("<subject>").IsHTML().AddRecipient("<recipient>").AddCCRecipients(new string[] { "<multiple recipients>" }).AddBody(<Message Body>).GenerateMessage();
 ```
 
+# Sending the message
+
 Sending the message as async
 ```
 await mailer.SendMailAsync(message);

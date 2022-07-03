@@ -9,11 +9,11 @@ In order, to could use that solution, you will need the followings:
 
 # Preparation
 ## Create an App Registration in Azure AD
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img1.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img1.jpg)
 ## Configure the necessary API permissions to the Application
     
     Open the Application and select API permissions on the left menu and then click to Add permission
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img2.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img2.jpg)
 ## Configure the required API permissions
 - Click to Microsoft Graph, select **Delegated permissions** and search the following permissions:
     - Mail.Send - Select its checkbox
@@ -21,26 +21,26 @@ In order, to could use that solution, you will need the followings:
     - Mail.Send - Select its checkbox
 - Click to **Add permission** button at the bottom
 
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img3.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img3.jpg)
 ## Grant admin consent for the Application permissions
 This part is required, otherwise you won't be able to send e-mail on behalf of any of registered e-mail addresses in the tenant.
     - Click to the button **Grant admin consent for <your tenant name>**
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img4.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img4.jpg)
 When you are done, Admin consent required column will be greened out.
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img5.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img5.jpg)
 ## Generate a secret, or use a certificate for Application authentication
 There are two options for authentication: using a secret (such as a password), or use a self-signed certificate.
 ### Adding a secret
 1. Navigate to **Certificates & Secrets** menu
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img6.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img6.jpg)
 
 2. Click to **+ New client secret** button
 
 Choose when should it expire and if you want, you can add a Description. Then click to **Add** button at the bottom of panel.
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img7.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img7.jpg)
 
 3. **When the secret has been added, immediately click to Copy icon next to the secret value, and save to somewhere. If you refresh the page, you won't see the secret value anytime!**
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img8.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img8.jpg)
 
 **Note**: `Do not forget to renew the secret before it expires. When it expired, the secret will no longer working! You also need to configure the new secret within your application!`
 
@@ -48,7 +48,7 @@ Choose when should it expire and if you want, you can add a Description. Then cl
 
 You need to generate a self-signed certificate on your machine and its public key must be exported to a *.pem or *.crt file. This file should be uploaded on the **Certificates** tab
 When it is uploaded, the certificate is listed and you can confirm its thumbprint.
-![](https://vargasolstorage.blob.core.windows.net/blogimages/img9.jpg)
+![](https://github.com/vargasol/Microsoft-Graph-Mailer/raw/master/MicrosoftGraphMailer/Images/img9.jpg)
 
 ## Find a sender address, who can be used within your company as a sender. If there no any, create an alias on an existing mailbox.
 

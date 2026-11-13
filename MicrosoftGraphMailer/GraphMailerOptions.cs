@@ -7,33 +7,38 @@ namespace Vargasol.Graph.Mailer
 	public record GraphMailerOptions
 	{
 		/// <summary>
-		/// Guid of Azure AD Tenant in string format
+		/// Guid of Entra Tenant in string format
 		/// </summary>
-		public string TenantID { get; init; }
+		public string TenantID { get; set; }
 
 		/// <summary>
-		/// Guid of Azure AD Application ID in string format
+		/// Guid of Entra Application ID in string format
 		/// </summary>
-		public string ApplicationID { get; init; }
+		public string ApplicationID { get; set; }
 
 		/// <summary>
-		/// Secret of Azure AD Application if secret authentication is used
+		/// Secret of Entra Application if secret authentication is used
 		/// </summary>
-		public string ClientSecret { get; init; }
+		public string ClientSecret { get; set; }
 
 		/// <summary>
-		/// Certificate of Azure AD Application if certificate authentication is used
+		/// Certificate thumbprint of Entra Application if certificate authentication is used
 		/// </summary>
-		public X509Certificate2 ClientCertificate { get; init; }
+		public string CertificateThumbprint { get; set; }
+
+		/// <summary>
+		/// Certificate of Entra Application if certificate authentication is used
+		/// </summary>
+		public X509Certificate2 ClientCertificate { get; set; }
 
 		/// <summary>
 		/// Automatically configured to true if certificate authentication is used
 		/// </summary>
-		public bool IsCertificateAuthentication { get; init; } = false;
+		public bool IsCertificateAuthentication { get; set; } = false;
 
 		/// <summary>
-		/// Sender address which must be an existing e-mail address within the Azure AD Tenant
+		/// Sender address which must be an existing e-mail address within the Entra Tenant
 		/// </summary>
-		public string SenderAddress { get; init; }
+		public string SenderAddress { get; set; }
 	}
 }

@@ -7,6 +7,11 @@ In order, to could use that solution, you will need the followings:
 - At least one user having Exchange Online license, or higher
 - Properly configured App Registration within the Azure AD
 
+# Changes
+- 3.0.0 - Added Dependency Injection support for MicrosoftGraphMailer. Added new method to create MicrosoftGraphMailer instance with DI support. Mail Sending has been throwing exceptions in case of some Message parameters are missing.
+- 2.0.0 - Upgraded to .NET 10.
+- 1.0.0 - Initial release with .NET 8.0
+
 # Preparation
 ## Create an App Registration in Azure AD
 ![](https://raw.githubusercontent.com/vargasol/Microsoft-Graph-Mailer/master/MicrosoftGraphMailer/Images/img1.jpg)
@@ -53,7 +58,7 @@ When it is uploaded, the certificate is listed and you can confirm its thumbprin
 ## Find a sender address, who can be used within your company as a sender. If there no any, create an alias on an existing mailbox.
 
 # Usage
-## Create MicrosoftGraphMailer object instance
+## Create MicrosoftGraphMailer object instance with version <=2.0.0
 Creating of this object is following the fluent capabilities.
 
 ### Create object with secret
@@ -73,6 +78,48 @@ store.Close();
 MicrosoftGraphMailer mailer = GraphMailerOptionBuilder.Create("<Azure AD Tenant ID>", "<Application ID>").WithClientSecret("<secret generated on Application>").WithClientCertificate(cert).CreateAzureADMailerInstance();
 ```
 This process automatically creates a new object what can be used for sending e-mails. If it is done, it means all your configuration for application authentication works (at this point there is no guarantee that e-mail sending works as well).
+
+## Create MicrosoftGraphMailer object instance with version 3.0.0
+Creating of this object using C# Dependency Injection capabilities. In this case you can create only one instance of Graph Mailer within your application, and you can use it in any part of your application via DI.
+
+### Create object with secret
+Program.cs:
+```
+builder.Services.AddGraphMailer(a =>
+{
+	a.ApplicationID = "<Entra Application Registration Client Id>";
+	a.ClientSecret = "<Entra Application Registration Client Secret>";
+	a.SenderAddress = "<Sender E-mail Address>";
+	a.TenantID = "<Azure AD Tenant ID>";
+});
+```
+
+
+### Create object with Client Certificate
+**Note**: the thumbprints in Certificate store are stored with uppercase, and the whole process is **case sensitive**! If you write the thumbprint with lowercase, you won't able to find the certificate. You need to either make your thumbprint to uppercase, or convert the thumbprints to lowercase. 
+Program.cs:
+```
+builder.Services.AddGraphMailer(a =>
+{
+	a.ApplicationID = "<Entra Application Registration Client Id>";
+	a.ClientCertificate = "<Entra Application Registration Certificate with Private Key>";
+	a.SenderAddress = "<Sender E-mail Address>";
+	a.TenantID = "<Azure AD Tenant ID>";
+});
+```
+
+### Create object with Certificate Thumbprint
+**Note**: the thumbprints in Certificate store are stored with uppercase, and the whole process is **case sensitive**! If you write the thumbprint with lowercase, you won't able to find the certificate. You need to either make your thumbprint to uppercase, or convert the thumbprints to lowercase. If certificate thumbprint is presented, then I will be loaded from computers local "My" store.
+Program.cs:
+```
+builder.Services.AddGraphMailer(a =>
+{
+	a.ApplicationID = "<Entra Application Registration Client Id>";
+	a.CertificateThumbprint = "<Entra Application Registration Private Key Certificate Thumbprint>";
+	a.SenderAddress = "<Sender E-mail Address>";
+	a.TenantID = "<Azure AD Tenant ID>";
+});
+```
 
 # Create mail object
 This process follows fluent approach as well. You can chain the proper commands after each other.

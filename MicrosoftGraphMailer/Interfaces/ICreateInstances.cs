@@ -6,11 +6,6 @@ namespace Vargasol.Graph.Mailer.Interfaces
 	/// </summary>
 	public interface ICreateInstances
 	{
-		/// <summary>
-		/// Create an AzureADMailer instance
-		/// </summary>
-		/// <returns>Finalized AzureADMailer instance</returns>
-		MicrosoftGraphMailer CreateAzureADMailerInstance();
 
 		/// <summary>
 		/// Create the AzureADOptionBuilder instance

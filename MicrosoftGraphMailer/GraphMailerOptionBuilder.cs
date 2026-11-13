@@ -66,14 +66,27 @@ namespace Vargasol.Graph.Mailer
 			this._ClientSecret = clientSecret;
 			return this;
 		}
-		
-		
+
+		public IWithSenderAddress WithClientCertificateThumbprint(string thumbprint)
+		{
+			X509Store x509Store = new X509Store("My", StoreLocation.LocalMachine);
+			x509Store.Open(OpenFlags.ReadOnly);
+			if (x509Store.Certificates.Any(a => a.Thumbprint == thumbprint))
+			{
+				this._UserCertificateForAuth = true;
+				this._Certificate = x509Store.Certificates.Single(a => a.Thumbprint == thumbprint);
+			}
+			x509Store.Close();
+			return this;
+		}
+
+
 		/// <inheritdoc/>	
-		public MicrosoftGraphMailer CreateAzureADMailerInstance()
+		/*public MicrosoftGraphMailer CreateAzureADMailerInstance()
 		{
 			this._CreateAzureADMailerOptions();
 			return new MicrosoftGraphMailer(this.Options);
-		}
+		}*/
 
 		/// <inheritdoc/>
 		public GraphMailerOptionBuilder CreateAzureADOptionBuilder()
